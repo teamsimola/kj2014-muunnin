@@ -20,7 +20,7 @@ units = [
 
 def menu_category():
 	print("1) Paino")
-	print("2) Lampotila")
+	print("2) Lämpötila")
 	print("0) Poistu")
 	return int(input("Valitse muunto: "))
 	
@@ -32,7 +32,7 @@ def menu_unit(cat):
 		print("1) C -> F")
 		print("2) F -> C")
 	
-	return int(input("Valitse yksikko: "))
+	return int(input("Valitse yksikkö: "))
 
 def main():
 	print("Tervetuloa Muuntimeen!")
@@ -41,7 +41,7 @@ def main():
 		if choice <= 0:
 			break
 		unit = menu_unit(choice)
-		value = float(input("Syota arvo: "))
+		value = float(input("Syötä arvo: "))
 		print("Muunnettu arvo: " + str(round(units[choice - 1][unit - 1](value), 2)))
 
 
