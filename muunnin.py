@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 def kg_to_lbs(kg):
 	return kg * 2.205
