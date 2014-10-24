@@ -12,15 +12,25 @@ def c_to_f(c):
 
 def f_to_c(f):
 	return (f - 32) * 5.0/9.0
+
+#meters to feet	added by teamsimola2.0 24.10 15:40
+def m_to_f(m):
+	return (m * 3.28084)
+
+#feet to meters added by teamsimola2.0 24.10 15:40,updated menus
+def f_to_m(f):
+	return (f / 3.28084)
 	
 units = [
 	[kg_to_lbs, lbs_to_kg],
-	[c_to_f, f_to_c]
+	[c_to_f, f_to_c],
+	[m_to_f, f_to_m]
 ]
 
 def menu_category():
 	print("1) Paino")
 	print("2) Lämpötila")
+	print("3) Pituus")
 	print("0) Poistu")
 	return int(input("Valitse muunto: "))
 	
@@ -31,6 +41,9 @@ def menu_unit(cat):
 	elif cat == 2:
 		print("1) C -> F")
 		print("2) F -> C")
+	elif cat == 3:
+		print("1) m -> ft")
+		print("2) ft -> m")
 	
 	return int(input("Valitse yksikkö: "))
 
