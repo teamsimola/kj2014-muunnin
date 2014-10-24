@@ -13,34 +13,36 @@ def f_to_c(f):
 	return (f - 32) * 5.0/9.0
 	
 units = [
-	{
-		'name': "Paino",
-		'units': {
-			'Kg -> Lbs': kg_to_lbs,
-			'Lbs -> Kg': lbs_to_kg
-		}
-	},
-	{
-		'name': "Lampotila",
-		'units': {
-			'C -> F': c_to_f,
-			'F -> C': f_to_c
-		}
-	},
+	[kg_to_lbs, lbs_to_kg],
+	[c_to_f, f_to_c]
 ]
 
-def menu():
-	for i, u in enumerate(units):
-		print(str(i + 1) + ") " + u['name'])
+def menu_category():
+	print("1) Paino")
+	print("2) Lampotila")
 	print("0) Poistu")
 	return int(input("Valitse muunto: "))
+	
+def menu_unit(cat):
+	if cat == 1:
+		print("1) Kg -> Lbs")
+		print("2) Lbs -> Kg")
+	elif cat == 2:
+		print("1) C -> F")
+		print("2) F -> C")
+	
+	return int(input("Valitse yksikko: "))
 
 def main():
 	print("Tervetuloa Muuntimeen!")
-	choice = 1
-	while choice > 0:
-		choice = menu()
-		print(units[choice - 1]['name'] + " valittu")
+	while True:
+		choice = menu_category()
+		if choice <= 0:
+			break
+		unit = menu_unit(choice)
+		value = float(input("Syota arvo: "))
+		print("Muunnettu arvo: " + str(round(units[choice - 1][unit - 1](value), 2)))
+
 
 if __name__ == "__main__":
 	main()
